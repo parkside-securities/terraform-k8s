@@ -25,4 +25,5 @@ docker build \
     -f $(basename "${BUILD_PATH}") \
     --build-arg "NAME=${NAME}" \
     --build-arg "VERSION=${VERSION}" \
+    --build-arg "RELEASE_BASE_URL=${RELEASE_BASE_URL}" \
     .

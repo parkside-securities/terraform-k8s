@@ -9,15 +9,16 @@ FROM hashicorp/terraform:0.12.24
 
 # NAME and VERSION are the name of the software in releases.hashicorp.com
 # and the version to download. Example: NAME=terraform VERSION=1.2.3.
-ARG NAME
+ARG NAME=terraform-k8s
 ARG VERSION
+ARG RELEASE_BASE_URL=https://github.com/hashicorp/$NAME/releases/download
 
 # Set ARGs as ENV so that they can be used in ENTRYPOINT/CMD
 ENV NAME=$NAME
 ENV VERSION=$VERSION
 
 # This is the location of the releases.
-ENV HASHICORP_RELEASES=https://github.com/hashicorp/$NAME/releases/download
+ENV HASHICORP_RELEASES=$RELEASE_BASE_URL
 
 # Create a non-root user to run the software.
 RUN addgroup ${NAME} && \
