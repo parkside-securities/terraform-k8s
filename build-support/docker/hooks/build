@@ -1,7 +1,10 @@
 #!/bin/bash
-set -xe
+set -e
 
-docker --version
+if [ ! -z "$DEBUG" ]; then
+    set -x
+    printenv
+fi
 
 # DOCKER_REPO is like "index.docker.io/foo/bar". The bashism below extracts
 # the string after the last "/". For VERSION, we extract the string after the
