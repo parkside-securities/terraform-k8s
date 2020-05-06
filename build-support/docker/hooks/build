@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+env
+which docker
+
 # DOCKER_REPO is like "index.docker.io/foo/bar". The bashism below extracts
 # the string after the last "/". For VERSION, we extract the string after the
 # first "v" (so v1.2.3 turns into 1.2.3).
