@@ -9,7 +9,7 @@ FROM hashicorp/terraform:0.12.24
 
 # NAME and VERSION are the name of the software in releases.hashicorp.com
 # and the version to download. Example: NAME=terraform VERSION=1.2.3.
-ARG NAME=terraform-k8s
+ARG NAME
 ARG VERSION
 ARG RELEASE_BASE_URL=https://github.com/hashicorp/$NAME/releases/download
 

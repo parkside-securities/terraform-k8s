@@ -5,7 +5,7 @@ set -e
 # the string after the last "/". For VERSION, we extract the string after the
 # first "v" (so v1.2.3 turns into 1.2.3).
 NAME=${DOCKER_REPO##*/}
-VERSION=${SOURCE_BRANCH#*v}
+VERSION=${SOURCE_BRANCH}
 
 if [ ! -z "$DEBUG" ]; then
     set -x
