@@ -27,8 +27,8 @@ RUN addgroup ${NAME} && \
 # Set up certificates, base tools, and software.
 RUN set -eux && \
     apk add --no-cache ca-certificates curl gnupg libcap openssl su-exec iputils && \
-    wget ${HASHICORP_RELEASES}/${VERSION}/${NAME}_${VERSION}_linux_amd64.zip && \
-    wget ${HASHICORP_RELEASES}/${VERSION}/${NAME}_${VERSION}_SHA256SUMS && \
+    wget ${HASHICORP_RELEASES}/v${VERSION}/${NAME}_v${VERSION}_linux_amd64.zip && \
+    wget ${HASHICORP_RELEASES}/v${VERSION}/${NAME}_v${VERSION}_SHA256SUMS && \
     unzip -d /bin ${NAME}_${VERSION}_linux_amd64.zip && \
     cd /tmp && \
     rm -rf /tmp/build && \
