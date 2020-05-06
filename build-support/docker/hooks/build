@@ -1,8 +1,5 @@
 #!/bin/bash
-set -e
-
-env
-which docker
+set -xe
 
 # DOCKER_REPO is like "index.docker.io/foo/bar". The bashism below extracts
 # the string after the last "/". For VERSION, we extract the string after the
@@ -14,7 +11,7 @@ VERSION=${SOURCE_BRANCH#*v}
 # branch name. In this case, we trigger a Dev build.
 if [ "${VERSION}" = "${SOURCE_BRANCH}" ]; then
     echo "=> Building full dev image for branch ${SOURCE_BRANCH}..."
-    docker build \
+    /usr/bin/docker build \
         -t ${IMAGE_NAME} \
         -f $(basename "${BUILD_PATH}") \
         ../..
@@ -23,7 +20,7 @@ fi
 
 # We have a NAME and VERSION set, so we build a release image.
 echo "=> Building Docker image for ${NAME}:${VERSION}"
-docker build \
+/usr/bin/docker build \
     -t ${DOCKER_REPO}:${VERSION} \
     -f $(basename "${BUILD_PATH}") \
     --build-arg "NAME=${NAME}" \
