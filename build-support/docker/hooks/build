@@ -26,7 +26,7 @@ fi
 # We have a NAME and VERSION set, so we build a release image.
 echo "=> Building Docker image for ${NAME}:${VERSION}"
 docker build \
-    -t ${DOCKER_REPO}:${VERSION} \
+    -t ${DOCKER_REPO}:v${VERSION} \
     -f ${DOCKERFILE_PATH} \
     --build-arg "NAME=${NAME}" \
     --build-arg "VERSION=${VERSION}" \
